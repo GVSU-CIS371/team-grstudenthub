@@ -12,8 +12,29 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      path: "/",
+      path: "/home",
+      name: "home",
       component: () => import("./views/HomeView.vue"),
+    },
+    {
+      path: "/",
+      name: "login",
+      component: () => import("./views/LoginView.vue"),
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("./views/RegisterView.vue"),
+    },
+    {
+      path: "/cityCampus",
+      name: "cityCampus",
+      component: () => import("./views/EventsView.vue"),
+    },
+    {
+      path: "/valleyCampus",
+      name: "valleyCampus",
+      component: () => import("./views/RestaurantsView.vue"),
     },
   ],
 });

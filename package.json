@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "pinia": "^2.3.1",
-    "pinia-plugin-persistedstate": "^3.2.1",
+    "pinia-plugin-persistedstate": "^3.2.3",
     "vue": "^3.4.19",
     "vue-router": "^4.6.4",
     "vuetify": "^3.12.4"
