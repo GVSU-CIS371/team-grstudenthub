@@ -9,18 +9,52 @@ const handleLogout = () => {
   auth.logout();
   router.push("/");
 };
+
+const categories = [
+  {
+    name: "Restaurants",
+    icon: "🍴",
+    description: "Best eats in GR",
+    path: "/restaurants",
+  },
+  {
+    name: "Events",
+    icon: "📅",
+    description: "Local concerts & shows",
+    path: "/events",
+  },
+];
+
+const navigateTo = (path: string) => {
+  router.push(path);
+};
 </script>
 
 <template>
   <div class="home-container">
-    <h1>Welcome to the GR Student Hub!</h1>
-    <h2>Best app to find all you need to have fun in Grand Rapids!</h2>
+    <header class="hero">
+      <h1>Welcome to the GR Student Hub!</h1>
+      <h2>Everything you need for the Grand Rapids student lifestyle.</h2>
+    </header>
+
+    <div class="hub-grid">
+      <div
+        v-for="item in categories"
+        :key="item.name"
+        class="hub-card"
+        @click="navigateTo(item.path)"
+      >
+        <div class="card-icon">{{ item.icon }}</div>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
 
     <div v-if="auth.isLoggedIn" class="logout-section">
-      <p>Hi, {{ auth.user.displayName }}! You are currently signed in.</p>
-      <button @click="handleLogout" class="home-logout-btn">
-        Logout of Account
-      </button>
+      <p>
+        Logged in as <strong>{{ auth.user.displayName || "Student" }}</strong>
+      </p>
+      <button @click="handleLogout" class="home-logout-btn">Logout</button>
     </div>
   </div>
 </template>
@@ -28,14 +62,67 @@ const handleLogout = () => {
 <style scoped>
 .home-container {
   padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.logout-section {
-  margin-top: 3rem;
+.hero {
+  margin-bottom: 3rem;
+}
+
+h1 {
+  color: oklab(37.625% -0.02343 -0.18183);
+  font-size: 2.5rem;
+}
+
+h2 {
+  color: #666;
+  font-weight: 400;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 4rem;
+}
+
+.hub-card {
+  background: white;
   padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 15px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: oklab(37.625% -0.02343 -0.18183);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hub-card h3 {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.hub-card p {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.logout-section {
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 10px;
   display: inline-block;
 }
 
@@ -43,23 +130,9 @@ const handleLogout = () => {
   background-color: oklab(37.625% -0.02343 -0.18183);
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 6px;
-  font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
-}
-
-.home-logout-btn:hover {
-  opacity: 0.9;
-}
-h1 {
-  color: oklab(37.625% -0.02343 -0.18183);
-  margin-bottom: 1rem;
-}
-h2 {
-  color: #555;
-  margin-bottom: 2rem;
-  font-size: small;
+  margin-top: 10px;
 }
 </style>

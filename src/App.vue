@@ -11,11 +11,16 @@ const handleLogout = () => {
 
 <template>
   <nav class="navbar">
-    <div class="logo">GR Student Hub</div>
+    <RouterLink to="/home" class="logo-link">
+      <div class="logo">
+        <span class="logo-icon">🏠</span>
+        GR Student Hub
+      </div>
+    </RouterLink>
 
     <ul class="nav-menu">
       <li v-if="auth.isLoggedIn">
-        <span class="user-greet">Hi, {{ auth.user.displayName }}!</span>
+        <span class="user-greet">Hi, {{ auth.user?.displayName }}!</span>
         <button class="logout-btn" @click="handleLogout">Logout</button>
       </li>
     </ul>
@@ -33,6 +38,21 @@ const handleLogout = () => {
   background-color: oklab(37.625% -0.02343 -0.18183);
   color: #ffffff;
 
+  a {
+    color: white !important;
+    text-decoration: none !important;
+    &:visited,
+    &:active {
+      color: white !important;
+      text-decoration: none !important;
+      outline: none;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   .nav-menu {
     display: flex;
     align-items: center;
@@ -40,12 +60,10 @@ const handleLogout = () => {
     list-style: none;
   }
 
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
+  .logo {
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
   }
 
   .user-greet {
@@ -63,6 +81,11 @@ const handleLogout = () => {
 }
 
 .auth-page {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(./assets/gvsu.jpg);
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;

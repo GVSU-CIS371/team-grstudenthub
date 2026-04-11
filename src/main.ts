@@ -27,13 +27,13 @@ const router = createRouter({
       component: () => import("./views/RegisterView.vue"),
     },
     {
-      path: "/cityCampus",
-      name: "cityCampus",
+      path: "/events",
+      name: "events",
       component: () => import("./views/EventsView.vue"),
     },
     {
-      path: "/valleyCampus",
-      name: "valleyCampus",
+      path: "/restaurants",
+      name: "restaurants",
       component: () => import("./views/RestaurantsView.vue"),
     },
   ],
