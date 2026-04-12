@@ -24,8 +24,11 @@ const handleRegister = async () => {
 
     router.push("/home");
   } catch (err: any) {
-    errorMessage.value = "Registration failed. Please check your info.";
-    console.error(err.code);
+    if (err.code === "auth/weak-password") {
+      errorMessage.value = "That password is too weak.";
+    } else {
+      errorMessage.value = "Something went wrong. Try again.";
+    }
   }
 };
 </script>
@@ -34,6 +37,7 @@ const handleRegister = async () => {
   <div class="auth-page">
     <div class="auth-card">
       <h2>Create Account</h2>
+      <p v-if="errorMessage" class="error-msg">{{ errorMessage }}</p>
       <div class="form-group">
         <label>Full Name</label>
         <input v-model="name" type="text" placeholder=" " />
@@ -53,6 +57,15 @@ const handleRegister = async () => {
 </template>
 
 <style scoped>
+.error-msg {
+  color: #d32f2f;
+  background-color: #fdecea;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #facfcc;
+}
 .auth-page {
   display: flex;
   justify-content: center;

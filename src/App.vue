@@ -53,17 +53,11 @@ body {
   color: #ffffff;
   position: relative;
   z-index: 10;
+  flex-shrink: 0;
 
   a {
     color: white !important;
     text-decoration: none !important;
-    &:visited,
-    &:active {
-      color: white !important;
-      text-decoration: none !important;
-      outline: none;
-    }
-
     &:hover {
       opacity: 0.8;
     }
@@ -79,11 +73,6 @@ body {
   .logo {
     font-size: 1rem;
     font-weight: bold;
-    cursor: pointer;
-  }
-
-  .user-greet {
-    margin-right: 10px;
   }
 
   .logout-btn {
@@ -105,7 +94,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 65px);
+  width: 100%;
   padding: 20px;
 }
 
@@ -113,14 +103,49 @@ body {
   width: 100%;
   max-width: 400px;
   padding: 2.5rem;
-  background: #ffffff;
+  background: #ffffff !important;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
 
   h2 {
-    color: oklab(37.625% -0.02343 -0.18183);
+    color: oklab(37.625% -0.02343 -0.18183) !important;
     margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #444444 !important;
+
+    a {
+      color: oklab(37.625% -0.02343 -0.18183) !important;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    color: #333333 !important;
+    font-weight: 600;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333333 !important;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #000000 !important;
+    background-color: #ffffff !important;
   }
 }
 
@@ -128,5 +153,16 @@ body {
   width: 100%;
   padding: 12px;
   background-color: oklab(37.625% -0.02343 -0.18183);
+  color: #ffffff !important;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 </style>
