@@ -1,0 +1,25 @@
+{
+  "name": "gr-student-hub",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^2.3.1",
+    "pinia-plugin-persistedstate": "^3.2.3",
+    "vue": "^3.4.19",
+    "vue-router": "^4.6.4",
+    "vuetify": "^3.12.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "sass-embedded": "^1.98.0",
+    "typescript": "^5.2.2",
+    "vite": "^6.0.0",
+    "vue-tsc": "^2.0.6"
+  }
+}
