@@ -1,55 +1,68 @@
 import { defineStore } from "pinia";
+import { auth, googleProvider } from "../firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
+import {
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
-    isLoggedIn: false,
-    user: {
-      uid: null as string | null,
-      email: null as string | null,
-      displayName: null as string | null,
-    },
-    registeredUsers: [] as any[],
+    user: null as any,
+    loading: true,
   }),
-  actions: {
-    async register(email: string, pass: string, name: string) {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      const newUser = {
-        uid: Date.now().toString(),
-        email,
-        name,
-        password: pass,
-      };
-      this.registeredUsers.push(newUser);
-      return { success: true };
+  getters: {
+    isLoggedIn: (state) => !!state.user,
+  },
+
+  actions: {
+    async login(email: string, pass: string) {
+      try {
+        const result = await signInWithEmailAndPassword(auth, email, pass);
+        this.user = result.user;
+      } catch (error: any) {
+        console.error("Firebase Auth Error:", error.code);
+        throw error;
+      }
     },
 
-    async login(email: string, pass: string) {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      const found = this.registeredUsers.find(
-        (u) => u.email === email && u.password === pass,
-      );
-      if (found) {
-        this.isLoggedIn = true;
-        this.user = {
-          uid: found.uid,
-          email: found.email,
-          displayName: found.name,
-        };
-        return { success: true };
+    async loginWithGoogle() {
+      try {
+        const result = await signInWithPopup(auth, googleProvider);
+        this.user = result.user;
+      } catch (error) {
+        console.error("Google Login failed:", error);
       }
-      return { success: false, msg: "Invalid credentials" };
     },
 
     async logout() {
-      this.isLoggedIn = false;
-      this.user = {
-        uid: null,
-        email: null,
-        displayName: null,
-      };
+      try {
+        await signOut(auth);
+        this.user = null;
+      } catch (error) {
+        console.error("Logout failed:", error);
+      }
+    },
+
+    init() {
+      onAuthStateChanged(auth, (user) => {
+        this.user = user;
+        this.loading = false;
+      });
+    },
+
+    async register(email: string, pass: string) {
+      try {
+        const result = await createUserWithEmailAndPassword(auth, email, pass);
+        this.user = result.user;
+      } catch (error: any) {
+        console.error("Registration failed:", error.code);
+        throw error;
+      }
     },
   },
-  persist: true,
 });

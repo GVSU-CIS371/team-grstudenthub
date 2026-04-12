@@ -2,18 +2,31 @@
 import { ref } from "vue";
 import { useAuthStore } from "../store/auth";
 import { useRouter } from "vue-router";
+import { updateProfile } from "firebase/auth";
 
-const auth = useAuthStore();
+const authStore = useAuthStore();
 const router = useRouter();
 
 const name = ref("");
 const email = ref("");
 const password = ref("");
-const error = ref("");
+const errorMessage = ref("");
 
-const handleRegister = () => {
-  console.log("Registering:", name.value);
-  router.push("/");
+const handleRegister = async () => {
+  errorMessage.value = "";
+
+  try {
+    await authStore.register(email.value, password.value);
+
+    if (authStore.user) {
+      await updateProfile(authStore.user, { displayName: name.value });
+    }
+
+    router.push("/home");
+  } catch (err: any) {
+    errorMessage.value = "Registration failed. Please check your info.";
+    console.error(err.code);
+  }
 };
 </script>
 
@@ -40,7 +53,7 @@ const handleRegister = () => {
 </template>
 
 <style scoped>
-.login-container {
+.auth-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +61,7 @@ const handleRegister = () => {
   outline: 3px solid black;
   outline-color: black;
 }
-.login-card {
+.auth-card {
   background: white;
   padding: 2rem;
   border-radius: 8px;

@@ -23,6 +23,24 @@ const categories = [
     description: "Local concerts & shows",
     path: "/events",
   },
+  {
+    name: "Favorites",
+    icon: "❤️",
+    description: "Your saved spots and events",
+    path: "/favorites",
+  },
+  {
+    name: "Profile",
+    icon: "👤",
+    description: "View and edit your profile",
+    path: "/profile",
+  },
+  {
+    name: "Reviews",
+    icon: "⭐",
+    description: "Read and write reviews",
+    path: "/reviews",
+  },
 ];
 
 const navigateTo = (path: string) => {
@@ -48,13 +66,6 @@ const navigateTo = (path: string) => {
         <h3>{{ item.name }}</h3>
         <p>{{ item.description }}</p>
       </div>
-    </div>
-
-    <div v-if="auth.isLoggedIn" class="logout-section">
-      <p>
-        Logged in as <strong>{{ auth.user.displayName || "Student" }}</strong>
-      </p>
-      <button @click="handleLogout" class="home-logout-btn">Logout</button>
     </div>
   </div>
 </template>

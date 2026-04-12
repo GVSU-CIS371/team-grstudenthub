@@ -6,7 +6,13 @@ import App from "./App.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
-import "vuetify/styles";
+import { useAuthStore } from "./store/auth";
+
+export default createVuetify({
+  icons: {
+    defaultSet: "mdi",
+  },
+});
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -36,8 +42,34 @@ const router = createRouter({
       name: "restaurants",
       component: () => import("./views/RestaurantsView.vue"),
     },
+    {
+      path: "/favorites",
+      name: "favorites",
+      component: () => import("./views/FavoritesView.vue"),
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: () => import("./views/ProfileView.vue"),
+    },
+    {
+      path: "/reviews",
+      name: "reviews",
+      component: () => import("./views/ReviewsView.vue"),
+    },
+    {
+      path: "/events/campus",
+      name: "campus-events",
+      component: () => import("./views/CampusEventsView.vue"),
+    },
+    {
+      path: "/events/city",
+      name: "city-events",
+      component: () => import("./views/GREventsView.vue"),
+    },
   ],
 });
+
 const vuetify = createVuetify({
   components,
   directives,
@@ -50,4 +82,15 @@ pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
 app.use(vuetify);
 app.use(router);
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore();
+  const publicPages = ["/", "/register"];
+  const authRequired = !publicPages.includes(to.path);
+
+  if (authRequired && !authStore.user) {
+    return next("/");
+  }
+  next();
+});
+
 app.mount("#app");

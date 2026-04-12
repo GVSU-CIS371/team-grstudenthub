@@ -3,15 +3,22 @@ import { ref } from "vue";
 import { useAuthStore } from "../store/auth";
 import { useRouter } from "vue-router";
 
-const auth = useAuthStore();
+const authStore = useAuthStore();
 const router = useRouter();
 
 const email = ref("");
 const password = ref("");
-const error = ref("");
+const errorMessage = ref("");
 
-const handleLogin = () => {
-  router.push("/home");
+const handleLogin = async () => {
+  errorMessage.value = "";
+  try {
+    await authStore.login(email.value, password.value);
+
+    router.push("/home");
+  } catch (err: any) {
+    errorMessage.value = "Invalid email or password. Please try again.";
+  }
 };
 </script>
 
@@ -20,12 +27,29 @@ const handleLogin = () => {
     <div class="auth-card">
       <h2>Student Login</h2>
 
+      <p
+        v-if="errorMessage"
+        style="
+          color: #d32f2f;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          font-size: 0.9rem;
+        "
+      >
+        {{ errorMessage }}
+      </p>
+
       <div class="form-group">
-        <input v-model="email" type="email" placeholder="Email" />
+        <input v-model="email" type="email" placeholder="Email" required />
       </div>
 
       <div class="form-group">
-        <input v-model="password" type="password" placeholder="Password" />
+        <input
+          v-model="password"
+          type="password"
+          placeholder="Password"
+          required
+        />
       </div>
 
       <button @click="handleLogin" class="auth-btn">Sign In</button>
@@ -37,20 +61,40 @@ const handleLogin = () => {
   </div>
 </template>
 
+<
 <style scoped>
 .auth-page {
+  /* 1. This pins the background to the WHOLE viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  /* 2. Z-index -1 moves the image BEHIND your navbar */
+  z-index: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  background-color: #f5f5f5;
+  padding: 20px;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../assets/gvsu.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+/* We make the card sit on top of the fixed background */
 .auth-card {
+  position: relative;
+  z-index: 1;
   background: white;
   padding: 3rem 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
   text-align: center;
@@ -64,14 +108,6 @@ h2 {
 .form-group {
   text-align: left;
   margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.85rem;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #666;
 }
 
 input {
@@ -93,7 +129,6 @@ input {
   font-weight: bold;
   cursor: pointer;
   margin-top: 1rem;
-  margin-bottom: 1rem;
   transition: opacity 0.2s;
 }
 
@@ -104,12 +139,12 @@ input {
 .toggle-text {
   margin-top: 1.5rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #fff; /* White for better visibility on the photo */
 }
 
 .toggle-text a {
-  color: oklab(37.625% -0.02343 -0.18183);
-  text-decoration: none;
+  color: white;
+  text-decoration: underline;
   font-weight: bold;
 }
 </style>

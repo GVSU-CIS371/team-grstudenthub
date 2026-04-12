@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import { useAuthStore } from "./store/auth";
+import { useRouter } from "vue-router";
 
 const auth = useAuthStore();
+const router = useRouter();
 
 const handleLogout = () => {
   auth.logout();
+  router.push("/");
 };
 </script>
 
@@ -30,6 +33,17 @@ const handleLogout = () => {
 </template>
 
 <style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -37,6 +51,8 @@ const handleLogout = () => {
   padding: 1rem 2rem;
   background-color: oklab(37.625% -0.02343 -0.18183);
   color: #ffffff;
+  position: relative;
+  z-index: 10;
 
   a {
     color: white !important;
@@ -83,13 +99,13 @@ const handleLogout = () => {
 .auth-page {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(./assets/gvsu.jpg);
+    url("./assets/gvsu.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  min-height: calc(100vh - 60px);
   padding: 20px;
 }
 
@@ -112,14 +128,5 @@ const handleLogout = () => {
   width: 100%;
   padding: 12px;
   background-color: oklab(37.625% -0.02343 -0.18183);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  &:hover {
-    opacity: 0.9;
-  }
 }
 </style>
