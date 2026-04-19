@@ -12,18 +12,42 @@ const fetchFavorites = async () => {
   if (!authStore.user) return;
 
   try {
-    const q = query(
+    loading.value = true;
+
+    const qRest = query(
       collection(db, "restaurant"),
       where("userId", "==", authStore.user.uid),
     );
 
-    const querySnapshot = await getDocs(q);
-    favorites.value = querySnapshot.docs.map((doc) => ({
+    const qEvent = query(
+      collection(db, "favorite_events"),
+      where("userId", "==", authStore.user.uid),
+    );
+
+    const [restSnap, eventSnap] = await Promise.all([
+      getDocs(qRest),
+      getDocs(qEvent),
+    ]);
+
+    const restList = restSnap.docs.map((doc) => ({
       docId: doc.id,
       ...doc.data(),
     }));
+
+    const eventList = eventSnap.docs.map((doc) => {
+      const data = doc.data();
+      return {
+        docId: doc.id,
+        ...data,
+        restaurantName: data.title || "Untitled Event",
+        address: data.location || "GVSU Campus",
+        type: "Event",
+      };
+    });
+
+    favorites.value = [...restList, ...eventList];
   } catch (error) {
-    console.error("Error fetching favorites:", error);
+    console.error(error);
   } finally {
     loading.value = false;
   }
@@ -35,22 +59,48 @@ onMounted(fetchFavorites);
 <template>
   <div class="favorites-page">
     <h1>My Student Hub</h1>
-    <p class="subtitle">Your saved Grand Rapids spots!</p>
+    <p class="subtitle">Your saved Grand Rapids spots and events!</p>
 
-    <div v-if="loading" class="loader">Loading your favorites...</div>
+    <div v-if="loading" class="loader">Syncing...</div>
 
     <div v-else-if="favorites.length === 0" class="no-favorites">
-      <p>You haven't saved any favorites yet! ❤️</p>
-      <v-btn to="/restaurants" color="primary">Find Restaurants</v-btn>
+      <p>You haven't saved anything yet! ❤️</p>
+      <div class="d-flex justify-center flex-wrap">
+        <v-btn to="/restaurants" color="primary" class="ma-2">Find Food</v-btn>
+        <v-btn to="/events" color="primary" class="ma-2">Find Events</v-btn>
+      </div>
     </div>
 
     <div v-else class="results-grid">
       <div v-for="fav in favorites" :key="fav.docId" class="biz-card">
-        <img :src="fav.image" class="biz-img" />
+        <div v-if="fav.type === 'Event'" class="biz-bg-box">
+          <v-icon color="white" size="48">mdi-calendar-heart</v-icon>
+        </div>
+        <img v-else :src="fav.image" class="biz-img" />
+
         <div class="biz-details">
-          <h3>{{ fav.restaurantName }}</h3>
-          <p class="address-text">📍 {{ fav.address }}</p>
-          <p class="type-tag">{{ fav.type }}</p>
+          <div>
+            <h3>{{ fav.restaurantName }}</h3>
+            <p class="address-text">📍 {{ fav.address }}</p>
+          </div>
+
+          <div class="card-footer">
+            <span
+              :class="[
+                'type-tag',
+                fav.type === 'Event' ? 'event-tag' : 'rest-tag',
+              ]"
+            >
+              {{ fav.type }}
+            </span>
+            <a
+              v-if="fav.link"
+              :href="fav.link"
+              target="_blank"
+              class="details-link"
+              >Details</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -91,6 +141,7 @@ h1 {
   transition: transform 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .biz-card:hover {
@@ -101,6 +152,15 @@ h1 {
   width: 100%;
   height: 180px;
   object-fit: cover;
+}
+
+.biz-bg-box {
+  width: 100%;
+  height: 180px;
+  background-color: #0032a0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .biz-details {
@@ -114,20 +174,45 @@ h1 {
 h3 {
   margin: 0 0 10px 0;
   color: #333;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 1.2;
 }
 
+.address-text {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
 .type-tag {
-  display: inline-block;
-  background: #eef2ff;
-  color: #0032a0;
   padding: 4px 12px;
   border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.event-tag {
+  background: #eef2ff;
+  color: #0032a0;
+}
+
+.rest-tag {
+  background: #fff1f2;
+  color: #d32323;
+}
+
+.details-link {
   font-size: 0.85rem;
+  color: #0032a0;
+  text-decoration: none;
   font-weight: 600;
-  text-transform: capitalize;
-  align-self: flex-start;
 }
 
 .no-favorites {
@@ -137,12 +222,6 @@ h3 {
   background: #f9f9f9;
   border-radius: 20px;
   border: 2px dashed #ccc;
-}
-
-.no-favorites p {
-  font-size: 1.3rem;
-  color: #0032a0;
-  margin-bottom: 20px;
 }
 
 .loader {

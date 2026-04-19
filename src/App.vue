@@ -84,7 +84,10 @@ body {
     cursor: pointer;
   }
 }
-
+.user-greet {
+  margin-right: 10px;
+  font-weight: 500;
+}
 .auth-page {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),

@@ -64,14 +64,12 @@ const handleLogin = async () => {
 <
 <style scoped>
 .auth-page {
-  /* 1. This pins the background to the WHOLE viewport */
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
 
-  /* 2. Z-index -1 moves the image BEHIND your navbar */
   z-index: 0;
 
   display: flex;
@@ -87,7 +85,6 @@ const handleLogin = async () => {
   background-repeat: no-repeat;
 }
 
-/* We make the card sit on top of the fixed background */
 .auth-card {
   position: relative;
   z-index: 1;
@@ -139,7 +136,7 @@ input {
 .toggle-text {
   margin-top: 1.5rem;
   font-size: 0.9rem;
-  color: #fff; /* White for better visibility on the photo */
+  color: #fff;
 }
 
 .toggle-text a {

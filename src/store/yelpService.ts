@@ -17,7 +17,7 @@ export const getRestaurants = async (location: string = "Grand Rapids, MI") => {
     if (!response.ok) throw new Error("Network response was not ok");
 
     const data = await response.json();
-    return data.businesses; // This returns the array of restaurants
+    return data.businesses;
   } catch (error) {
     console.error("Error fetching Yelp data:", error);
     return [];

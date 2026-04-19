@@ -8,10 +8,12 @@
 *.sw?
 
 # Dependencies 
+serviceAccountKey.json
 node_modules/
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+serviceAccountKey.json
 
 # Build output
 dist/
