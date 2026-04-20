@@ -82,6 +82,11 @@ onMounted(fetchFavorites);
           <div>
             <h3>{{ fav.restaurantName }}</h3>
             <p class="address-text">📍 {{ fav.address }}</p>
+            <div v-if="fav.type === 'Event'">
+              <p class="date-text">
+                📅 {{ new Date(fav.start).toLocaleDateString() }}
+              </p>
+            </div>
           </div>
 
           <div class="card-footer">
@@ -181,6 +186,11 @@ h3 {
 .address-text {
   font-size: 0.9rem;
   color: #666;
+}
+.date-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
 }
 
 .card-footer {

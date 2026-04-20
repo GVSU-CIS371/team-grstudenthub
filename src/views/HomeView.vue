@@ -30,12 +30,6 @@ const categories = [
     path: "/favorites",
   },
   {
-    name: "Profile",
-    icon: "👤",
-    description: "View and edit your profile",
-    path: "/profile",
-  },
-  {
     name: "Reviews",
     icon: "⭐",
     description: "Read and write reviews",

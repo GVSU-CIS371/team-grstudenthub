@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import { useAuthStore } from "./store/auth";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const auth = useAuthStore();
 const router = useRouter();
-
+const route = useRoute();
 const handleLogout = () => {
   auth.logout();
   router.push("/");
@@ -14,12 +14,12 @@ const handleLogout = () => {
 
 <template>
   <nav class="navbar">
-    <RouterLink to="/home" class="logo-link">
-      <div class="logo">
-        <span class="logo-icon">🏠</span>
-        GR Student Hub
+    <div class="logo">GR Student Hub</div>
+    <div v-if="auth.isLoggedIn" class="nav-links">
+      <div v-if="route.path !== '/home'" class="go-home">
+        <RouterLink to="/home" class="logo-link">🏠 Home</RouterLink>
       </div>
-    </RouterLink>
+    </div>
 
     <ul class="nav-menu">
       <li v-if="auth.isLoggedIn">
@@ -76,6 +76,14 @@ body {
   }
 
   .logout-btn {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .go-home {
     background: transparent;
     border: 1px solid white;
     color: white;
