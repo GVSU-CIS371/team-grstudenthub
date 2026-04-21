@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { db } from "../firebaseConfig";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { useAuthStore } from "../store/auth";
 
 const authStore = useAuthStore();
@@ -53,6 +60,24 @@ const fetchFavorites = async () => {
   }
 };
 
+const deleteFavorite = async (fav: any) => {
+  if (!confirm(`Remove ${fav.restaurantName} from your favorite list?`)) return;
+
+  try {
+    const collectionName =
+      fav.type === "Event" ? "favorite_events" : "restaurant";
+
+    await deleteDoc(doc(db, collectionName, fav.docId));
+
+    favorites.value = favorites.value.filter(
+      (item) => item.docId !== fav.docId,
+    );
+  } catch (e) {
+    console.error("Delete failed:", e);
+    alert("Could not delete. Check your console.");
+  }
+};
+
 onMounted(fetchFavorites);
 </script>
 
@@ -98,13 +123,24 @@ onMounted(fetchFavorites);
             >
               {{ fav.type }}
             </span>
-            <a
-              v-if="fav.link"
-              :href="fav.link"
-              target="_blank"
-              class="details-link"
-              >Details</a
-            >
+
+            <div class="d-flex align-center" style="gap: 12px">
+              <a
+                v-if="fav.link"
+                :href="fav.link"
+                target="_blank"
+                class="details-link"
+                >Details</a
+              >
+
+              <button
+                @click="deleteFavorite(fav)"
+                class="delete-btn"
+                title="Delete"
+              >
+                🗑️
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -239,5 +275,17 @@ h3 {
   font-size: 1.2rem;
   color: #0032a0;
   margin-top: 50px;
+}
+
+.delete-btn {
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.delete-btn:hover {
+  background: rgba(211, 35, 35, 0.1);
+  border-radius: 6px;
 }
 </style>

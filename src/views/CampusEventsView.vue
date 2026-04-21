@@ -163,7 +163,7 @@ h3 {
 .yelp-link {
   display: inline-block;
   margin-top: 12px;
-  color: #d32323;
+  color: #0032a0;
   text-decoration: none;
   font-weight: bold;
 }
