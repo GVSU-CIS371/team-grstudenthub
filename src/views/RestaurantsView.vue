@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { getRestaurants } from "../store/yelpService";
+import restaurantData from "../assets/restaurants.json";
 import { db } from "../firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthStore } from "../store/auth";
+
 const authStore = useAuthStore();
 
 const restaurants = ref<any[]>([]);
 const loading = ref(true);
 
-onMounted(async () => {
-  restaurants.value = await getRestaurants("Grand Rapids, MI");
-  loading.value = false;
+onMounted(() => {
+  restaurants.value = restaurantData.businesses || restaurantData;
+
+  setTimeout(() => {
+    loading.value = false;
+  }, 500);
 });
+
 const addToFavorites = async (item: any) => {
   if (!authStore.user?.uid) {
     alert("You aren't logged in!");
@@ -20,7 +25,7 @@ const addToFavorites = async (item: any) => {
   }
 
   try {
-    const docRef = await addDoc(collection(db, "restaurant"), {
+    await addDoc(collection(db, "restaurant"), {
       userId: authStore.user.uid,
       restaurantName: item.name || "Missing Name",
       restaurantId: item.id || "Missing ID",

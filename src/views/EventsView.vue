@@ -73,13 +73,13 @@ h1 {
 
 .campus-bg {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("gvsu.jpg");
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/gvsu.jpg");
 }
 
 .city-bg {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("grandrapids.jpg");
+    url("/grandrapids.jpg");
 }
 
 .overlay {
