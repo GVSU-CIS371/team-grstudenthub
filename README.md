@@ -18,3 +18,5 @@ Your **Term Project** is an essential part of the course. Please review the inst
 - Test your project regularly.  
 
 Best of luck! 🚀  
+Our Web Application is hosted on Firebase Hosting at:
+[**GR Student Hub**](https://gr-student-hub.web.app/#/).
