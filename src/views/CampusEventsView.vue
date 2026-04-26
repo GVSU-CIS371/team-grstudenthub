@@ -37,14 +37,22 @@ const addToFavorites = async (event: any) => {
   }
 };
 
-const formatDate = (dateStr: string) => {
-  if (!dateStr) return "TBD";
-  return new Date(dateStr).toLocaleString([], {
+const formatDate = (dateString: string | any) => {
+  if (!dateString) return "TBD";
+
+  const date = new Date(dateString);
+
+  if (isNaN(date.getTime())) {
+    return "TBD";
+  }
+
+  return date.toLocaleString("en-US", {
     weekday: "short",
     month: "short",
     day: "numeric",
-    hour: "2-digit",
+    hour: "numeric",
     minute: "2-digit",
+    hour12: true,
   });
 };
 </script>
@@ -67,7 +75,7 @@ const formatDate = (dateStr: string) => {
 
     <div v-else class="results-grid">
       <div
-        v-for="event in eventStore.campusEvents"
+        v-for="event in eventStore.campusEvents || []"
         :key="event.id"
         class="biz-card"
       >

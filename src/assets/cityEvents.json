@@ -1,0 +1,454 @@
+{
+  "events": [
+    {
+      "id": "egr-ext-000",
+      "title": "Movies in the Park #1",
+      "start": "2026-04-26T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Enjoy a classic film under the stars at the downtown riverfront.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-001",
+      "title": "Swing Dancing at Rosa Parks Circle #1",
+      "start": "2026-04-29T10:00:00",
+      "location": "Rosa Parks Circle",
+      "description": "Free lessons followed by open dancing in the heart of the city.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-002",
+      "title": "Fulton Street Farmers Market #1",
+      "start": "2026-05-02T10:00:00",
+      "location": "1145 Fulton St E",
+      "description": "Browse fresh local produce, crafts, and food from West Michigan vendors.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-003",
+      "title": "Jazz in the Park #1",
+      "start": "2026-05-02T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Relax with the smooth sounds of local and regional jazz ensembles.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-004",
+      "title": "Frederik Meijer Gardens Concert Series #1",
+      "start": "2026-05-05T10:00:00",
+      "location": "Meijer Gardens",
+      "description": "Outdoor summer concerts featuring world-class musical acts.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-005",
+      "title": "GRAM After Dark #1",
+      "start": "2026-05-08T10:00:00",
+      "location": "Grand Rapids Art Museum",
+      "description": "Experience the museum after hours with live music and cocktails.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-006",
+      "title": "West Side Food Crawl #1",
+      "start": "2026-05-08T10:00:00",
+      "location": "Bridge Street",
+      "description": "A guided tasting tour of the historic West Side's best eateries.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-007",
+      "title": "Beer City Barbell Open #1",
+      "start": "2026-05-11T10:00:00",
+      "location": "8th Day Gym",
+      "description": "Local weightlifting competition showcasing Grand Rapids athletes.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-008",
+      "title": "Grand Rapids Public Museum Planetarium Show #1",
+      "start": "2026-05-14T10:00:00",
+      "location": "GR Public Museum",
+      "description": "An immersive journey through the cosmos in the digital dome.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-009",
+      "title": "Yoga on the Blue Bridge #1",
+      "start": "2026-05-14T10:00:00",
+      "location": "The Blue Bridge",
+      "description": "Morning yoga session with stunning views of the Grand River.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-010",
+      "title": "Movies in the Park #2",
+      "start": "2026-05-17T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Enjoy a classic film under the stars at the downtown riverfront.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-011",
+      "title": "Swing Dancing at Rosa Parks Circle #2",
+      "start": "2026-05-20T10:00:00",
+      "location": "Rosa Parks Circle",
+      "description": "Free lessons followed by open dancing in the heart of the city.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-012",
+      "title": "Fulton Street Farmers Market #2",
+      "start": "2026-05-20T10:00:00",
+      "location": "1145 Fulton St E",
+      "description": "Browse fresh local produce, crafts, and food from West Michigan vendors.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-013",
+      "title": "Jazz in the Park #2",
+      "start": "2026-05-23T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Relax with the smooth sounds of local and regional jazz ensembles.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-014",
+      "title": "Frederik Meijer Gardens Concert Series #2",
+      "start": "2026-05-26T10:00:00",
+      "location": "Meijer Gardens",
+      "description": "Outdoor summer concerts featuring world-class musical acts.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-015",
+      "title": "GRAM After Dark #2",
+      "start": "2026-05-26T10:00:00",
+      "location": "Grand Rapids Art Museum",
+      "description": "Experience the museum after hours with live music and cocktails.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-016",
+      "title": "West Side Food Crawl #2",
+      "start": "2026-05-29T10:00:00",
+      "location": "Bridge Street",
+      "description": "A guided tasting tour of the historic West Side's best eateries.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-017",
+      "title": "Beer City Barbell Open #2",
+      "start": "2026-06-01T10:00:00",
+      "location": "8th Day Gym",
+      "description": "Local weightlifting competition showcasing Grand Rapids athletes.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-018",
+      "title": "Grand Rapids Public Museum Planetarium Show #2",
+      "start": "2026-06-01T10:00:00",
+      "location": "GR Public Museum",
+      "description": "An immersive journey through the cosmos in the digital dome.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-019",
+      "title": "Yoga on the Blue Bridge #2",
+      "start": "2026-06-04T10:00:00",
+      "location": "The Blue Bridge",
+      "description": "Morning yoga session with stunning views of the Grand River.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-020",
+      "title": "Movies in the Park #3",
+      "start": "2026-06-07T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Enjoy a classic film under the stars at the downtown riverfront.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-021",
+      "title": "Swing Dancing at Rosa Parks Circle #3",
+      "start": "2026-06-07T10:00:00",
+      "location": "Rosa Parks Circle",
+      "description": "Free lessons followed by open dancing in the heart of the city.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-022",
+      "title": "Fulton Street Farmers Market #3",
+      "start": "2026-06-10T10:00:00",
+      "location": "1145 Fulton St E",
+      "description": "Browse fresh local produce, crafts, and food from West Michigan vendors.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-023",
+      "title": "Jazz in the Park #3",
+      "start": "2026-06-13T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Relax with the smooth sounds of local and regional jazz ensembles.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-024",
+      "title": "Frederik Meijer Gardens Concert Series #3",
+      "start": "2026-06-13T10:00:00",
+      "location": "Meijer Gardens",
+      "description": "Outdoor summer concerts featuring world-class musical acts.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-025",
+      "title": "GRAM After Dark #3",
+      "start": "2026-06-16T10:00:00",
+      "location": "Grand Rapids Art Museum",
+      "description": "Experience the museum after hours with live music and cocktails.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-026",
+      "title": "West Side Food Crawl #3",
+      "start": "2026-06-19T10:00:00",
+      "location": "Bridge Street",
+      "description": "A guided tasting tour of the historic West Side's best eateries.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-027",
+      "title": "Beer City Barbell Open #3",
+      "start": "2026-06-19T10:00:00",
+      "location": "8th Day Gym",
+      "description": "Local weightlifting competition showcasing Grand Rapids athletes.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-028",
+      "title": "Grand Rapids Public Museum Planetarium Show #3",
+      "start": "2026-06-22T10:00:00",
+      "location": "GR Public Museum",
+      "description": "An immersive journey through the cosmos in the digital dome.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-029",
+      "title": "Yoga on the Blue Bridge #3",
+      "start": "2026-06-25T10:00:00",
+      "location": "The Blue Bridge",
+      "description": "Morning yoga session with stunning views of the Grand River.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-030",
+      "title": "Movies in the Park #4",
+      "start": "2026-06-25T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Enjoy a classic film under the stars at the downtown riverfront.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-031",
+      "title": "Swing Dancing at Rosa Parks Circle #4",
+      "start": "2026-06-28T10:00:00",
+      "location": "Rosa Parks Circle",
+      "description": "Free lessons followed by open dancing in the heart of the city.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-032",
+      "title": "Fulton Street Farmers Market #4",
+      "start": "2026-07-01T10:00:00",
+      "location": "1145 Fulton St E",
+      "description": "Browse fresh local produce, crafts, and food from West Michigan vendors.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-033",
+      "title": "Jazz in the Park #4",
+      "start": "2026-07-01T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Relax with the smooth sounds of local and regional jazz ensembles.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-034",
+      "title": "Frederik Meijer Gardens Concert Series #4",
+      "start": "2026-07-04T10:00:00",
+      "location": "Meijer Gardens",
+      "description": "Outdoor summer concerts featuring world-class musical acts.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-035",
+      "title": "GRAM After Dark #4",
+      "start": "2026-07-07T10:00:00",
+      "location": "Grand Rapids Art Museum",
+      "description": "Experience the museum after hours with live music and cocktails.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-036",
+      "title": "West Side Food Crawl #4",
+      "start": "2026-07-07T10:00:00",
+      "location": "Bridge Street",
+      "description": "A guided tasting tour of the historic West Side's best eateries.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-037",
+      "title": "Beer City Barbell Open #4",
+      "start": "2026-07-10T10:00:00",
+      "location": "8th Day Gym",
+      "description": "Local weightlifting competition showcasing Grand Rapids athletes.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-038",
+      "title": "Grand Rapids Public Museum Planetarium Show #4",
+      "start": "2026-07-13T10:00:00",
+      "location": "GR Public Museum",
+      "description": "An immersive journey through the cosmos in the digital dome.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-039",
+      "title": "Yoga on the Blue Bridge #4",
+      "start": "2026-07-13T10:00:00",
+      "location": "The Blue Bridge",
+      "description": "Morning yoga session with stunning views of the Grand River.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-040",
+      "title": "Movies in the Park #5",
+      "start": "2026-07-16T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Enjoy a classic film under the stars at the downtown riverfront.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-041",
+      "title": "Swing Dancing at Rosa Parks Circle #5",
+      "start": "2026-07-19T10:00:00",
+      "location": "Rosa Parks Circle",
+      "description": "Free lessons followed by open dancing in the heart of the city.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-042",
+      "title": "Fulton Street Farmers Market #5",
+      "start": "2026-07-19T10:00:00",
+      "location": "1145 Fulton St E",
+      "description": "Browse fresh local produce, crafts, and food from West Michigan vendors.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-043",
+      "title": "Jazz in the Park #5",
+      "start": "2026-07-22T10:00:00",
+      "location": "Ah-Nab-Awen Park",
+      "description": "Relax with the smooth sounds of local and regional jazz ensembles.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-044",
+      "title": "Frederik Meijer Gardens Concert Series #5",
+      "start": "2026-07-25T10:00:00",
+      "location": "Meijer Gardens",
+      "description": "Outdoor summer concerts featuring world-class musical acts.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-045",
+      "title": "GRAM After Dark #5",
+      "start": "2026-07-25T10:00:00",
+      "location": "Grand Rapids Art Museum",
+      "description": "Experience the museum after hours with live music and cocktails.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-046",
+      "title": "West Side Food Crawl #5",
+      "start": "2026-07-28T10:00:00",
+      "location": "Bridge Street",
+      "description": "A guided tasting tour of the historic West Side's best eateries.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-047",
+      "title": "Beer City Barbell Open #5",
+      "start": "2026-07-31T10:00:00",
+      "location": "8th Day Gym",
+      "description": "Local weightlifting competition showcasing Grand Rapids athletes.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-048",
+      "title": "Grand Rapids Public Museum Planetarium Show #5",
+      "start": "2026-07-31T10:00:00",
+      "location": "GR Public Museum",
+      "description": "An immersive journey through the cosmos in the digital dome.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    },
+    {
+      "id": "egr-ext-049",
+      "title": "Yoga on the Blue Bridge #5",
+      "start": "2026-08-03T10:00:00",
+      "location": "The Blue Bridge",
+      "description": "Morning yoga session with stunning views of the Grand River.",
+      "link": "https://www.experiencegr.com/events/",
+      "source": "ExperienceGR"
+    }
+  ]
+}
